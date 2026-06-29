@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { Share2, Copy, Check, Heart, Award, Gift, MapPin, Briefcase, Quote, Phone } from "lucide-react";
+import { Share2, Copy, Check, Heart, Award, Gift, MapPin, Briefcase, Phone } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
@@ -106,27 +106,6 @@ const Ambassador = () => {
     trackShare("email", ph);
   });
 
-  const testimonials = [
-    {
-      quote: "A friend shared this guide with me before my move. It made all the difference in finding the right neighborhood and understanding the city.",
-      name: "Priya Sharma",
-      role: "Software Engineer",
-      from: "Moved from Bangalore"
-    },
-    {
-      quote: "I wish I had this resource when I moved. Now I share it with everyone considering Hyderabad. The cost of living comparison alone is invaluable.",
-      name: "Rahul Mehta",
-      role: "Product Manager",
-      from: "Moved from Mumbai"
-    },
-    {
-      quote: "The neighborhood recommendations helped me find the perfect area near my office. I've recommended this to three colleagues already.",
-      name: "Ananya Reddy",
-      role: "Data Scientist",
-      from: "Moved from Chennai"
-    }
-  ];
-
   const howItWorks = [
     {
       step: "01",
@@ -184,18 +163,6 @@ const Ambassador = () => {
             {copied ? <Check className="w-4 h-4" /> : <Share2 className="w-4 h-4" />}
             {copied ? "Link Copied!" : "Share This Guide"}
           </Button>
-          <div className="flex gap-6">
-            {[
-              { value: "10K+", label: "People Helped" },
-              { value: "50K+", label: "Total Shares" },
-              { value: "100+", label: "Countries" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="text-white font-bold text-base leading-none">{stat.value}</p>
-                <p className="text-white/45 text-[10px] uppercase tracking-[0.15em] mt-1">{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </PageHero>
 
@@ -358,7 +325,7 @@ const Ambassador = () => {
               </Card>
             </Reveal>
 
-            {/* Why Share + Testimonials */}
+            {/* Why Share */}
             <div className="space-y-12">
               <Reveal delay={100}>
                 <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
@@ -374,31 +341,6 @@ const Ambassador = () => {
                       <div>
                         <h3 className="font-semibold text-sm sm:text-base mb-1">{item.title}</h3>
                         <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Reveal>
-
-              <Reveal delay={150}>
-                <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-4">
-                  <span className="text-muted-foreground/60 mr-3">03</span>What People Say
-                </p>
-                <div className="space-y-4">
-                  {testimonials.map((testimonial, index) => (
-                    <div key={index} className="rounded-2xl border border-border bg-card p-6">
-                      <Quote className="w-6 h-6 text-primary/25 mb-3" />
-                      <p className="text-sm mb-5 leading-relaxed">"{testimonial.quote}"</p>
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                          <span className="text-sm font-semibold text-primary">
-                            {testimonial.name.split(' ').map(n => n[0]).join('')}
-                          </span>
-                        </div>
-                        <div>
-                          <p className="font-semibold text-sm">{testimonial.name}</p>
-                          <p className="text-xs text-muted-foreground">{testimonial.role} · {testimonial.from}</p>
-                        </div>
                       </div>
                     </div>
                   ))}
