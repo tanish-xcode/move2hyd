@@ -1,0 +1,4 @@
+project_id = "rtvavueyxhempxmewqfk"
+
+[functions.send-move-guide]
+verify_jwt = false
