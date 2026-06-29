@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, Search, Heart, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/hooks/use-toast";
 import logo from "@/assets/logo.png";
@@ -47,23 +46,6 @@ const searchablePages = [{
   title: "Ambassador Program",
   path: "/ambassador",
   keywords: ["ambassador", "share", "refer", "iphone", "contest"]
-}];
-const favoritePages = [{
-  title: "Why Hyderabad",
-  path: "/why-hyderabad",
-  description: "Discover the benefits"
-}, {
-  title: "Living Here",
-  path: "/living-here",
-  description: "Housing & lifestyle guide"
-}, {
-  title: "Work & Tech",
-  path: "/work-tech",
-  description: "Career opportunities"
-}, {
-  title: "Culture & Food",
-  path: "/culture",
-  description: "Experience the culture"
 }];
 export const Navigation = () => {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -125,32 +107,6 @@ export const Navigation = () => {
               <Button variant="ghost" size="icon" className="hidden md:flex" onClick={() => setSearchOpen(true)}>
                 <Search className="h-5 w-5" />
               </Button>
-
-              {/* Favorites Popover */}
-              <Popover>
-                <PopoverTrigger asChild>
-                  <Button variant="ghost" size="icon" className="hidden md:flex">
-                    <Heart className="h-5 w-5" />
-                  </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-72" align="end">
-                  <div className="space-y-3">
-                    <h4 className="font-semibold text-sm">Quick Links</h4>
-                    <div className="space-y-2">
-                      {favoritePages.map(page => <Link key={page.path} to={page.path} className="flex flex-col p-2 rounded-lg hover:bg-muted transition-colors">
-                          <span className="font-medium text-sm">{page.title}</span>
-                          <span className="text-xs text-muted-foreground">{page.description}</span>
-                        </Link>)}
-                    </div>
-                    <div className="pt-2 border-t">
-                      <Link to="/ambassador" className="text-xs text-primary hover:underline flex items-center gap-1">
-                        <Heart className="h-3 w-3 fill-primary" />
-                        Share & Win iPhone 17!
-                      </Link>
-                    </div>
-                  </div>
-                </PopoverContent>
-              </Popover>
 
               {/* Plan Your Move Button */}
               <Button variant="hero" size="sm" className="hidden md:flex" onClick={scrollToMoveGuide}>
