@@ -31,6 +31,16 @@ export const Reveal = ({ children, delay = 0, y = 28, duration = 800, className,
       setVisible(true);
       return;
     }
+    // If we're inside a horizontal scroller (a carousel), skip the reveal:
+    // off-screen items would otherwise "rise in" each time they're swiped
+    // into view, making cards bob up and down.
+    for (let p = el.parentElement; p; p = p.parentElement) {
+      const ox = getComputedStyle(p).overflowX;
+      if (ox === "auto" || ox === "scroll") {
+        setVisible(true);
+        return;
+      }
+    }
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
