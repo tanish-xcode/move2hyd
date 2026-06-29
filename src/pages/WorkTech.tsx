@@ -4,8 +4,10 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
 import { SwipeRow } from "@/components/SwipeRow";
-import { Button } from "@/components/ui/button";
-import { Rocket, ExternalLink, ArrowRight } from "lucide-react";
+import { EditorialList } from "@/components/EditorialList";
+import { FeatureRows } from "@/components/FeatureRows";
+import { BentoGrid } from "@/components/BentoGrid";
+import { Rocket } from "lucide-react";
 import heroImage from "@/assets/hero-work-tech-new.jpg";
 
 export default function WorkTech() {
@@ -237,7 +239,7 @@ export default function WorkTech() {
 
       {/* Top Companies */}
       <section id="employers" className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
@@ -252,30 +254,15 @@ export default function WorkTech() {
             </p>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {topCompanies.map((company, i) => (
-              <Reveal key={company.name} delay={(i % 3) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">{company.employees} Employees</p>
-                  <h3 className="text-xl font-bold tracking-tight mb-3">{company.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{company.description}</p>
-                  <div className="space-y-2 text-sm text-muted-foreground mb-5">
-                    <p><span className="font-medium text-foreground">Roles:</span> {company.roles}</p>
-                    <p><span className="font-medium text-foreground">Salary:</span> <span className="text-primary font-semibold">{company.salary}</span></p>
-                    <p><span className="font-medium text-foreground">Benefits:</span> {company.benefits}</p>
-                  </div>
-                  <a
-                    href={company.applyUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-auto inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
-                  >
-                    View Jobs <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={topCompanies.map((company) => ({
+              title: company.name,
+              value: company.salary,
+              meta: `${company.employees} employees`,
+              description: company.description,
+              note: `Roles: ${company.roles}`,
+            }))}
+          />
         </div>
       </section>
 
@@ -291,19 +278,16 @@ export default function WorkTech() {
             </h2>
           </Reveal>
 
-          <SwipeRow outerClassName="mb-12" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            {salaryGuide.map((level, i) => (
-              <Reveal key={level.level} delay={(i % 4) * 90}>
-                <div className="relative h-full rounded-2xl bg-card border border-border p-6 sm:p-7 overflow-hidden">
-                  <span className="absolute top-0 left-0 h-1 w-12 bg-primary rounded-br-lg" />
-                  <p className="font-semibold text-sm mb-3">{level.level}</p>
-                  <p className="text-2xl sm:text-3xl font-bold tracking-tight text-primary leading-none mb-4">{level.range}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-2">{level.examples}</p>
-                  <p className="text-sm text-primary font-medium">{level.negotiation}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <div className="mb-12 max-w-4xl">
+            <EditorialList
+              items={salaryGuide.map((level) => ({
+                title: level.level,
+                value: level.range,
+                description: level.examples,
+                note: level.negotiation,
+              }))}
+            />
+          </div>
 
           <Reveal className="mb-10">
             <div className="overflow-x-auto rounded-2xl border border-border bg-card">
@@ -357,22 +341,14 @@ export default function WorkTech() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {industryGrowth.map((industry, i) => (
-              <Reveal key={industry.sector} delay={(i % 3) * 100}>
-                <div className="relative h-full rounded-2xl bg-card border border-border p-6 sm:p-7 overflow-hidden">
-                  <span className="absolute top-0 left-0 h-1 w-12 bg-primary rounded-br-lg" />
-                  <p className="font-semibold text-sm mb-3">{industry.sector}</p>
-                  <p className="text-3xl sm:text-4xl font-bold tracking-tight text-primary leading-none mb-4">{industry.growth}</p>
-                  <div className="space-y-1 text-sm text-muted-foreground">
-                    <p>{industry.companies} companies</p>
-                    <p>{industry.trend}</p>
-                    <p className="text-primary font-medium">{industry.jobs}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <BentoGrid
+            items={industryGrowth.map((industry) => ({
+              lead: industry.growth,
+              title: industry.sector,
+              subtitle: `${industry.companies} companies`,
+              description: `${industry.trend} · ${industry.jobs}`,
+            }))}
+          />
         </div>
       </section>
 
@@ -431,17 +407,13 @@ export default function WorkTech() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-            {workCulture.map((item, i) => (
-              <Reveal key={item.aspect} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <h3 className="font-bold text-lg tracking-tight mb-2">{item.aspect}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">{item.detail}</p>
-                  <p className="text-sm text-primary font-medium">{item.tip}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <FeatureRows
+            items={workCulture.map((item) => ({
+              title: item.aspect,
+              description: item.detail,
+              tip: item.tip,
+            }))}
+          />
         </div>
       </section>
 

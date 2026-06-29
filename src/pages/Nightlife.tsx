@@ -3,9 +3,9 @@ import { SectionNav } from "@/components/SectionNav";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { SwipeRow } from "@/components/SwipeRow";
-import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Shield, ArrowRight } from "lucide-react";
+import { EditorialList } from "@/components/EditorialList";
+import { BentoGrid } from "@/components/BentoGrid";
+import { Shield } from "lucide-react";
 import heroImage from "@/assets/explore-nightlife.jpg";
 
 export default function Nightlife() {
@@ -88,7 +88,7 @@ export default function Nightlife() {
 
       {/* Bars & Clubs */}
       <section className="py-14 sm:py-28 px-6 sm:px-10">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
@@ -103,32 +103,15 @@ export default function Nightlife() {
             </p>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-            {venues.map((v, i) => (
-              <Reveal key={v.name} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">{v.type}</p>
-                  <h3 className="text-xl font-bold tracking-tight mb-3">{v.name}</h3>
-                  <div className="space-y-2 text-sm text-muted-foreground mb-4">
-                    <div className="flex items-start gap-2">
-                      <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-muted-foreground/60" />
-                      <span>{v.location}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Clock className="w-4 h-4 mt-0.5 flex-shrink-0 text-muted-foreground/60" />
-                      <span>{v.timing}</span>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{v.details}</p>
-                  <div className="mt-auto pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      <span className="font-semibold text-foreground">Tip: </span>{v.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={venues.map((v) => ({
+              lead: v.type,
+              title: v.name,
+              meta: `${v.location} · ${v.timing}`,
+              description: v.details,
+              note: v.tip,
+            }))}
+          />
         </div>
       </section>
 
@@ -174,29 +157,22 @@ export default function Nightlife() {
             </h2>
           </Reveal>
 
-          <SwipeRow outerClassName="mb-14" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            {lateNight.map((f, i) => (
-              <Reveal key={f.name} delay={(i % 4) * 90} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <h3 className="font-bold tracking-tight mb-2">{f.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">{f.details}</p>
-                  <p className="text-sm font-semibold text-primary">{f.price}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <div className="mb-14 max-w-4xl">
+            <EditorialList
+              items={lateNight.map((f) => ({
+                title: f.name,
+                value: f.price,
+                description: f.details,
+              }))}
+            />
+          </div>
 
-          <SwipeRow className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            {entertainment.map((e, i) => (
-              <Reveal key={e.name} delay={(i % 4) * 90} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">Entertainment</p>
-                  <h3 className="font-bold tracking-tight mb-2">{e.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{e.details}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <BentoGrid
+            items={entertainment.map((e) => ({
+              title: e.name,
+              description: e.details,
+            }))}
+          />
         </div>
       </section>
 
@@ -212,17 +188,14 @@ export default function Nightlife() {
             </h2>
           </Reveal>
 
-          <SwipeRow outerClassName="mb-14" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            {weeklyGuide.map((w, i) => (
-              <Reveal key={w.day} delay={(i % 4) * 90} className="h-full">
-                <div className="relative h-full rounded-2xl bg-card border border-border p-6 sm:p-7 overflow-hidden">
-                  <span className="absolute top-0 left-0 h-1 w-12 bg-primary rounded-br-lg" />
-                  <h3 className="font-bold tracking-tight mb-2">{w.day}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{w.scene}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <div className="mb-14 max-w-4xl">
+            <EditorialList
+              items={weeklyGuide.map((w) => ({
+                lead: w.day,
+                title: w.scene,
+              }))}
+            />
+          </div>
 
           <Reveal>
             <div className="rounded-2xl bg-card border border-border p-7 sm:p-8">

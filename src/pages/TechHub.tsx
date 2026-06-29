@@ -3,10 +3,10 @@ import { SectionNav } from "@/components/SectionNav";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { CountUp } from "@/components/CountUp";
-import { SwipeRow } from "@/components/SwipeRow";
-import { Button } from "@/components/ui/button";
-import { Building2, Users, TrendingUp, Award, Zap, ArrowRight } from "lucide-react";
+import { EditorialList } from "@/components/EditorialList";
+import { FeatureRows } from "@/components/FeatureRows";
+import { BentoGrid } from "@/components/BentoGrid";
+import { Building2, Users, TrendingUp, Award, Zap } from "lucide-react";
 import heroImage from "@/assets/explore-tech.jpg";
 
 export default function TechHub() {
@@ -90,7 +90,7 @@ export default function TechHub() {
 
       {/* Tech Giants */}
       <section className="py-14 sm:py-28 px-6 sm:px-10">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
@@ -105,23 +105,19 @@ export default function TechHub() {
             </p>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {companies.map((c, i) => (
-              <Reveal key={c.name} delay={(i % 3) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">{c.stats}</p>
-                  <h3 className="text-xl font-bold tracking-tight mb-3">{c.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{c.details}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={companies.map((c) => ({
+              title: c.name,
+              value: c.stats,
+              description: c.details,
+            }))}
+          />
         </div>
       </section>
 
       {/* Startups */}
       <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="max-w-2xl mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
               <span className="text-muted-foreground/60 mr-3">02</span>The Builders
@@ -131,17 +127,13 @@ export default function TechHub() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-            {startups.map((s, i) => (
-              <Reveal key={s.name} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">{s.tag}</p>
-                  <h3 className="text-xl font-bold tracking-tight mb-3">{s.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{s.details}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={startups.map((s) => ({
+              lead: s.tag,
+              title: s.name,
+              description: s.details,
+            }))}
+          />
         </div>
       </section>
 
@@ -157,17 +149,12 @@ export default function TechHub() {
             </h2>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-border">
-            {techParks.map((p, i) => (
-              <Reveal key={p.name} delay={i * 100}>
-                <div className="pt-8 pb-6 lg:pr-8 lg:border-r border-border last:border-r-0 h-full">
-                  <p className="text-5xl font-bold tracking-tight text-muted-foreground/20 mb-5">{String(i + 1).padStart(2, "0")}</p>
-                  <h3 className="font-bold text-lg tracking-tight mb-2">{p.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{p.details}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <BentoGrid
+            items={techParks.map((p) => ({
+              title: p.name,
+              description: p.details,
+            }))}
+          />
         </div>
       </section>
 
@@ -183,25 +170,19 @@ export default function TechHub() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {ecosystem.map((e, i) => (
-              <Reveal key={e.aspect} delay={(i % 3) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 sm:p-8 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary mb-5">
-                    <e.icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold text-lg tracking-tight mb-2">{e.aspect}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{e.details}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <FeatureRows
+            items={ecosystem.map((e) => ({
+              title: e.aspect,
+              description: e.details,
+              icon: e.icon,
+            }))}
+          />
         </div>
       </section>
 
       {/* Job Market */}
       <section className="py-14 sm:py-28 px-6 sm:px-10">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="max-w-2xl mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
               <span className="text-muted-foreground/60 mr-3">05</span>The Market
@@ -211,23 +192,14 @@ export default function TechHub() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {jobMarket.map((j, i) => (
-              <Reveal key={j.role} delay={(i % 3) * 100} className="h-full">
-                <div className="relative h-full rounded-2xl bg-card border border-border p-6 sm:p-7 overflow-hidden">
-                  <span className="absolute top-0 left-0 h-1 w-12 bg-primary rounded-br-lg" />
-                  <h3 className="font-bold tracking-tight mb-1.5">{j.role}</h3>
-                  <p className="text-2xl font-bold tracking-tight text-primary mb-3">
-                    <CountUp value={j.salary} />
-                  </p>
-                  <div className="space-y-1 text-sm text-muted-foreground">
-                    <p><span className="font-medium text-foreground">Demand:</span> {j.demand}</p>
-                    <p><span className="font-medium text-foreground">Skills:</span> {j.skills}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={jobMarket.map((j) => ({
+              title: j.role,
+              value: j.salary,
+              meta: j.demand,
+              description: j.skills,
+            }))}
+          />
         </div>
       </section>
 
@@ -243,16 +215,12 @@ export default function TechHub() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            {events.map((e, i) => (
-              <Reveal key={e.name} delay={(i % 4) * 90} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <h3 className="font-bold tracking-tight mb-2">{e.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{e.details}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <BentoGrid
+            items={events.map((e) => ({
+              title: e.name,
+              description: e.details,
+            }))}
+          />
         </div>
       </section>
 

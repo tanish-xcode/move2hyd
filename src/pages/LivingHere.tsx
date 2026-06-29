@@ -1,11 +1,11 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
-import { SwipeRow } from "@/components/SwipeRow";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
-import { Button } from "@/components/ui/button";
-import { Home, IndianRupee, Train, Car, Bike, Bus, Zap, ArrowRight } from "lucide-react";
+import { EditorialList } from "@/components/EditorialList";
+import { BentoGrid } from "@/components/BentoGrid";
+import { Home, IndianRupee, Train, Car, Bike, Bus } from "lucide-react";
 import heroImage from "@/assets/hero-living-aerial.jpg";
 
 export default function LivingHere() {
@@ -211,7 +211,7 @@ export default function LivingHere() {
 
       {/* Neighborhoods */}
       <section id="neighborhoods" className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
@@ -226,43 +226,16 @@ export default function LivingHere() {
             </p>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-            {neighborhoods.map((hood, i) => (
-              <Reveal key={hood.name} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 sm:p-8 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">{hood.type}</p>
-                  <h3 className="text-2xl font-bold tracking-tight mb-3">{hood.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">{hood.description}</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
-                    <div className="rounded-xl bg-muted/50 p-3.5">
-                      <p className="text-xs text-muted-foreground mb-1">Rent</p>
-                      <p className="font-semibold text-sm">{hood.rent}</p>
-                    </div>
-                    <div className="rounded-xl bg-muted/50 p-3.5">
-                      <p className="text-xs text-muted-foreground mb-1">Buy</p>
-                      <p className="font-semibold text-sm">{hood.buyPrice}</p>
-                    </div>
-                  </div>
-                  <div className="space-y-2 text-sm text-muted-foreground mb-5">
-                    <p><span className="font-medium text-foreground">Best for:</span> {hood.bestFor}</p>
-                    <p><span className="font-medium text-foreground">Commute:</span> {hood.commute}</p>
-                  </div>
-                  <ul className="space-y-1 mb-5">
-                    {hood.highlights.map((h) => (
-                      <li key={h} className="text-sm text-muted-foreground flex gap-2">
-                        <span className="text-primary">·</span>{h}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-auto pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      <span className="font-semibold text-foreground">Insider tip: </span>{hood.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={neighborhoods.map((hood) => ({
+              lead: hood.type,
+              title: hood.name,
+              value: hood.rent,
+              meta: `Buy ${hood.buyPrice} · ${hood.commute}`,
+              description: `${hood.description} Best for: ${hood.bestFor}. Highlights: ${hood.highlights.join(", ")}.`,
+              note: hood.tip,
+            }))}
+          />
         </div>
       </section>
 
@@ -278,20 +251,13 @@ export default function LivingHere() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            {transportation.map((t, i) => (
-              <Reveal key={t.mode} delay={(i % 4) * 90} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary mb-5">
-                    <t.icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold tracking-tight mb-1">{t.mode}</h3>
-                  <p className="text-primary font-semibold mb-3">{t.cost}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{t.details}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <BentoGrid
+            items={transportation.map((t) => ({
+              title: t.mode,
+              subtitle: t.cost,
+              description: t.details,
+            }))}
+          />
         </div>
       </section>
 
@@ -307,7 +273,7 @@ export default function LivingHere() {
             </h2>
           </Reveal>
 
-          <SwipeRow outerClassName="mb-10" className="grid md:grid-cols-2 gap-5 sm:gap-6">
+          <div className="mb-10 grid md:grid-cols-2 gap-5 sm:gap-6">
             <Reveal className="h-full">
               <div className="h-full rounded-2xl bg-card border border-border p-7 sm:p-8">
                 <div className="flex items-center gap-3 mb-6">
@@ -345,9 +311,9 @@ export default function LivingHere() {
                 </div>
               </div>
             </Reveal>
-          </SwipeRow>
+          </div>
 
-          <SwipeRow className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             {costOfLiving.budgets.map((b, i) => (
               <Reveal key={b.label} delay={i * 90}>
                 <div className="relative h-full rounded-2xl bg-card border border-border p-6 sm:p-7 overflow-hidden">
@@ -358,13 +324,13 @@ export default function LivingHere() {
                 </div>
               </Reveal>
             ))}
-          </SwipeRow>
+          </div>
         </div>
       </section>
 
       {/* Healthcare */}
       <section id="healthcare" className="py-14 sm:py-28 px-6 sm:px-10">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="max-w-2xl mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
               <span className="text-muted-foreground/60 mr-3">05</span>Healthcare
@@ -374,33 +340,16 @@ export default function LivingHere() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-            {healthcare.map((h, i) => (
-              <Reveal key={h.name} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">{h.type}</p>
-                  <h3 className="text-xl font-bold tracking-tight mb-1">{h.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-3">{h.location}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{h.specialty}</p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
-                    <div className="rounded-xl bg-muted/50 p-3">
-                      <p className="text-xs text-muted-foreground mb-0.5">Insurance</p>
-                      <p className="text-xs font-medium">{h.insurance}</p>
-                    </div>
-                    <div className="rounded-xl bg-muted/50 p-3">
-                      <p className="text-xs text-muted-foreground mb-0.5">Wait time</p>
-                      <p className="text-xs font-medium">{h.wait}</p>
-                    </div>
-                  </div>
-                  <div className="mt-auto pt-3 border-t border-border">
-                    <p className="text-sm text-muted-foreground">
-                      <span className="font-semibold text-foreground">Tip: </span>{h.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={healthcare.map((h) => ({
+              lead: h.type,
+              title: h.name,
+              value: h.wait,
+              meta: `${h.location} · ${h.specialty}`,
+              description: h.insurance,
+              note: h.tip,
+            }))}
+          />
         </div>
       </section>
 
@@ -416,27 +365,20 @@ export default function LivingHere() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-            {education.map((e, i) => (
-              <Reveal key={e.type} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <div className="flex items-baseline justify-between gap-4 mb-3">
-                    <h3 className="text-lg font-bold tracking-tight">{e.type}</h3>
-                    <span className="text-primary font-semibold whitespace-nowrap text-sm">{e.fees}</span>
-                  </div>
-                  <p className="text-sm font-medium mb-2">{e.examples}</p>
-                  <p className="text-sm text-muted-foreground mb-1"><span className="font-medium text-foreground">Curriculum:</span> {e.curriculum}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{e.highlights}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <BentoGrid
+            items={education.map((e) => ({
+              lead: e.type,
+              title: e.type,
+              subtitle: e.fees,
+              description: `${e.highlights} Curriculum: ${e.curriculum}. Examples: ${e.examples}.`,
+            }))}
+          />
         </div>
       </section>
 
       {/* Utilities */}
       <section className="py-14 sm:py-28 px-6 sm:px-10">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="max-w-2xl mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
               <span className="text-muted-foreground/60 mr-3">07</span>Setting Up
@@ -446,26 +388,14 @@ export default function LivingHere() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {utilities.map((u, i) => (
-              <Reveal key={u.service} delay={(i % 3) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary mb-5">
-                    <Zap className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold tracking-tight mb-0.5">{u.service}</h3>
-                  <p className="text-xs text-muted-foreground mb-3">{u.provider}</p>
-                  <p className="text-primary font-semibold mb-3">{u.cost}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{u.setup}</p>
-                  <div className="mt-auto pt-3 border-t border-border">
-                    <p className="text-sm text-muted-foreground">
-                      <span className="font-semibold text-foreground">Tip: </span>{u.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={utilities.map((u) => ({
+              title: u.service,
+              value: u.cost,
+              meta: `${u.provider} · ${u.setup}`,
+              note: u.tip,
+            }))}
+          />
         </div>
       </section>
 

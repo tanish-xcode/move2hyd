@@ -2,9 +2,9 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { SwipeRow } from "@/components/SwipeRow";
-import { Button } from "@/components/ui/button";
-import { Utensils, Theater, Camera, MapPin, Sparkles, ArrowRight } from "lucide-react";
+import { FeatureRows } from "@/components/FeatureRows";
+import { EditorialList } from "@/components/EditorialList";
+import { Utensils, Theater, Camera, Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-culture-golconda.jpg";
 
 export default function Culture() {
@@ -112,7 +112,7 @@ export default function Culture() {
         </div>
       </PageHero>
 
-      {/* Cultural Highlights */}
+      {/* Cultural Highlights — feature rows */}
       <section className="py-14 sm:py-28 px-6 sm:px-10">
         <div className="container mx-auto max-w-7xl">
           <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
@@ -129,35 +129,13 @@ export default function Culture() {
             </p>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-            {culturalHighlights.map((item, i) => (
-              <Reveal key={item.title} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 sm:p-8 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary mb-5">
-                    <item.icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-2xl font-bold tracking-tight mb-3">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">{item.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {item.chips.map((chip) => (
-                      <span key={chip} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">{chip}</span>
-                    ))}
-                  </div>
-                  <div className="mt-auto pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      <span className="font-semibold text-foreground">Tip: </span>{item.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <FeatureRows items={culturalHighlights} />
         </div>
       </section>
 
-      {/* Signature Dishes */}
+      {/* Signature Dishes — editorial list */}
       <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="max-w-2xl mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
               <span className="text-muted-foreground/60 mr-3">02</span>The Cuisine
@@ -167,31 +145,21 @@ export default function Culture() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {signatureDishes.map((dish, i) => (
-              <Reveal key={dish.name} delay={(i % 3) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">{dish.type}</p>
-                  <div className="flex items-baseline justify-between gap-3 mb-3">
-                    <h3 className="text-lg font-bold tracking-tight">{dish.name}</h3>
-                    <span className="text-primary font-semibold text-sm whitespace-nowrap">{dish.price}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4"><span className="font-medium text-foreground">Where:</span> {dish.where}</p>
-                  <div className="mt-auto pt-3 border-t border-border">
-                    <p className="text-sm text-muted-foreground">
-                      <span className="font-semibold text-foreground">Tip: </span>{dish.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={signatureDishes.map((dish) => ({
+              lead: dish.type,
+              title: dish.name,
+              value: dish.price,
+              meta: `Where: ${dish.where}`,
+              note: dish.tip,
+            }))}
+          />
         </div>
       </section>
 
-      {/* Cultural Venues */}
+      {/* Cultural Venues — editorial list */}
       <section className="py-14 sm:py-28 px-6 sm:px-10">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="max-w-2xl mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
               <span className="text-muted-foreground/60 mr-3">03</span>The Stages
@@ -201,35 +169,22 @@ export default function Culture() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {culturalVenues.map((venue, i) => (
-              <Reveal key={venue.name} delay={(i % 3) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">{venue.type}</p>
-                  <div className="flex items-baseline justify-between gap-3 mb-2">
-                    <h3 className="text-lg font-bold tracking-tight">{venue.name}</h3>
-                    <span className="text-primary font-semibold text-sm whitespace-nowrap">{venue.cost}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                    <MapPin className="w-4 h-4 text-muted-foreground/60" />
-                    <span>{venue.location}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{venue.description}</p>
-                  <div className="mt-auto pt-3 border-t border-border">
-                    <p className="text-sm text-muted-foreground">
-                      <span className="font-semibold text-foreground">Tip: </span>{venue.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={culturalVenues.map((venue) => ({
+              lead: venue.type,
+              title: venue.name,
+              value: venue.cost,
+              meta: venue.location,
+              description: venue.description,
+              note: venue.tip,
+            }))}
+          />
         </div>
       </section>
 
-      {/* Festivals */}
+      {/* Festivals — editorial list */}
       <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="max-w-2xl mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
               <span className="text-muted-foreground/60 mr-3">04</span>The Celebrations
@@ -239,29 +194,22 @@ export default function Culture() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {festivals.map((festival, i) => (
-              <Reveal key={festival.name} delay={(i % 3) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">{festival.season} · {festival.type}</p>
-                  <h3 className="text-lg font-bold tracking-tight mb-3">{festival.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-3">{festival.description}</p>
-                  <p className="text-sm text-muted-foreground mb-4"><span className="font-medium text-foreground">Where:</span> {festival.locations}</p>
-                  <div className="mt-auto pt-3 border-t border-border">
-                    <p className="text-sm text-muted-foreground">
-                      <span className="font-semibold text-foreground">Tip: </span>{festival.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={festivals.map((festival) => ({
+              lead: festival.type,
+              title: festival.name,
+              value: festival.season,
+              description: festival.description,
+              meta: `Where: ${festival.locations}`,
+              note: festival.tip,
+            }))}
+          />
         </div>
       </section>
 
-      {/* Local Experiences */}
+      {/* Local Experiences — editorial list */}
       <section className="py-14 sm:py-28 px-6 sm:px-10">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="max-w-2xl mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
               <span className="text-muted-foreground/60 mr-3">05</span>The Experiences
@@ -271,29 +219,19 @@ export default function Culture() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {localExperiences.map((exp, i) => (
-              <Reveal key={exp.title} delay={(i % 3) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <h3 className="text-lg font-bold tracking-tight mb-3">{exp.title}</h3>
-                  <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-muted-foreground mb-3">
-                    <span><span className="font-medium text-foreground">Duration:</span> {exp.duration}</span>
-                    <span><span className="font-medium text-foreground">Cost:</span> <span className="text-primary font-semibold">{exp.cost}</span></span>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{exp.description}</p>
-                  <div className="mt-auto pt-3 border-t border-border">
-                    <p className="text-sm text-muted-foreground">
-                      <span className="font-semibold text-foreground">Tip: </span>{exp.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={localExperiences.map((exp) => ({
+              title: exp.title,
+              value: exp.cost,
+              meta: `Duration: ${exp.duration}`,
+              description: exp.description,
+              note: exp.tip,
+            }))}
+          />
         </div>
       </section>
 
-      {/* Language Guide */}
+      {/* Language Guide — split info (kept) */}
       <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
         <div className="container mx-auto max-w-7xl">
           <Reveal className="max-w-2xl mb-12">
@@ -305,7 +243,7 @@ export default function Culture() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid lg:grid-cols-2 gap-5 sm:gap-6">
+          <div className="grid lg:grid-cols-2 gap-5 sm:gap-6">
             <div className="space-y-5">
               <Reveal>
                 <div className="rounded-2xl bg-card border border-border p-7">
@@ -332,7 +270,7 @@ export default function Culture() {
                 </div>
               </div>
             </Reveal>
-          </SwipeRow>
+          </div>
         </div>
       </section>
 

@@ -3,9 +3,8 @@ import { SectionNav } from "@/components/SectionNav";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { SwipeRow } from "@/components/SwipeRow";
-import { Button } from "@/components/ui/button";
-import { MapPin, ArrowRight } from "lucide-react";
+import { EditorialList } from "@/components/EditorialList";
+import { BentoGrid } from "@/components/BentoGrid";
 import heroImage from "@/assets/explore-shopping.jpg";
 
 export default function Shopping() {
@@ -69,7 +68,7 @@ export default function Shopping() {
 
 {/* Malls */}
       <section className="py-14 sm:py-28 px-6 sm:px-10">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
@@ -84,31 +83,20 @@ export default function Shopping() {
             </p>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-            {malls.map((m, i) => (
-              <Reveal key={m.name} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <h3 className="text-xl font-bold tracking-tight mb-1.5">{m.name}</h3>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                    <MapPin className="w-4 h-4 text-muted-foreground/60" />
-                    <span>{m.location}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{m.details}</p>
-                  <div className="mt-auto pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      <span className="font-semibold text-foreground">Tip: </span>{m.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={malls.map((m) => ({
+              title: m.name,
+              meta: m.location,
+              description: m.details,
+              note: m.tip,
+            }))}
+          />
         </div>
       </section>
 
       {/* Markets & Bazaars */}
       <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="max-w-2xl mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
               <span className="text-muted-foreground/60 mr-3">02</span>The Traditional
@@ -118,26 +106,15 @@ export default function Shopping() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-            {markets.map((m, i) => (
-              <Reveal key={m.name} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">{m.type}</p>
-                  <h3 className="text-xl font-bold tracking-tight mb-1.5">{m.name}</h3>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
-                    <MapPin className="w-4 h-4 text-muted-foreground/60" />
-                    <span>{m.location}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{m.details}</p>
-                  <div className="mt-auto pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      <span className="font-semibold text-foreground">Tip: </span>{m.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={markets.map((m) => ({
+              lead: m.type,
+              title: m.name,
+              meta: m.location,
+              description: m.details,
+              note: m.tip,
+            }))}
+          />
         </div>
       </section>
 
@@ -153,16 +130,12 @@ export default function Shopping() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            {specialty.map((s, i) => (
-              <Reveal key={s.name} delay={(i % 4) * 90} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <h3 className="font-bold tracking-tight mb-2">{s.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{s.what}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <BentoGrid
+            items={specialty.map((s) => ({
+              title: s.name,
+              description: s.what,
+            }))}
+          />
         </div>
       </section>
 

@@ -3,9 +3,8 @@ import { SectionNav } from "@/components/SectionNav";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { SwipeRow } from "@/components/SwipeRow";
-import { Button } from "@/components/ui/button";
-import { Camera, MapPin, Clock, IndianRupee, ArrowRight } from "lucide-react";
+import { FeatureRows } from "@/components/FeatureRows";
+import { EditorialList } from "@/components/EditorialList";
 import heroImage from "@/assets/explore-heritage.jpg";
 
 export default function Heritage() {
@@ -158,7 +157,7 @@ export default function Heritage() {
 
 {/* Monuments */}
       <section className="py-14 sm:py-28 px-6 sm:px-10">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
@@ -173,35 +172,15 @@ export default function Heritage() {
             </p>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-            {monuments.map((m, i) => (
-              <Reveal key={m.name} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 sm:p-8 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <h3 className="text-2xl font-bold tracking-tight mb-3">{m.name}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">{m.description}</p>
-                  <div className="space-y-2.5 text-sm mb-5">
-                    <div className="flex items-start gap-2.5">
-                      <Clock className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{m.timings}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <MapPin className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{m.location}</span>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <IndianRupee className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-muted-foreground">{m.entry}</span>
-                    </div>
-                  </div>
-                  <div className="mt-auto pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      <span className="font-semibold text-foreground">Insider tip: </span>{m.tips}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={monuments.map((m) => ({
+              title: m.name,
+              value: m.entry,
+              meta: `${m.location} · ${m.timings}`,
+              description: m.description,
+              note: m.tips,
+            }))}
+          />
         </div>
       </section>
 
@@ -250,35 +229,14 @@ export default function Heritage() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-            {experiences.map((exp, i) => (
-              <Reveal key={exp.title} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <div className="inline-flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 text-primary mb-5">
-                    <Camera className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-xl font-bold tracking-tight mb-2">{exp.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">{exp.description}</p>
-                  <div className="mb-4">
-                    <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">{exp.pointsLabel}</p>
-                    <ul className="space-y-1">
-                      {exp.points.map((p) => (
-                        <li key={p} className="text-sm text-muted-foreground flex gap-2">
-                          <span className="text-primary">·</span>{p}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  {exp.meta && <p className="text-sm font-semibold text-primary mb-4">{exp.meta}</p>}
-                  <div className="mt-auto pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      <span className="font-semibold text-foreground">Tip: </span>{exp.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <FeatureRows
+            items={experiences.map((exp) => ({
+              title: exp.title,
+              description: exp.meta ? `${exp.description} ${exp.meta}` : exp.description,
+              chips: exp.points,
+              tip: exp.tip,
+            }))}
+          />
         </div>
       </section>
 
@@ -294,7 +252,7 @@ export default function Heritage() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {practicalInfo.map((info, i) => (
               <Reveal key={info.title} delay={(i % 3) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
@@ -303,7 +261,7 @@ export default function Heritage() {
                 </div>
               </Reveal>
             ))}
-          </SwipeRow>
+          </div>
         </div>
       </section>
 

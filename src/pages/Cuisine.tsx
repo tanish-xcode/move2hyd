@@ -3,9 +3,8 @@ import { SectionNav } from "@/components/SectionNav";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
-import { SwipeRow } from "@/components/SwipeRow";
-import { Button } from "@/components/ui/button";
-import { MapPin, Clock, ArrowRight, Footprints } from "lucide-react";
+import { EditorialList } from "@/components/EditorialList";
+import { FeatureRows } from "@/components/FeatureRows";
 import heroImage from "@/assets/cuisine-biryani.jpg";
 
 export default function Cuisine() {
@@ -209,7 +208,7 @@ export default function Cuisine() {
 
       {/* Signature Dishes */}
       <section className="py-14 sm:py-28 px-6 sm:px-10">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
@@ -224,44 +223,21 @@ export default function Cuisine() {
             </p>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
-            {signatureDishes.map((dish, i) => (
-              <Reveal key={dish.name} delay={(i % 2) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 sm:p-8 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <div className="flex items-baseline justify-between gap-4 mb-3">
-                    <h3 className="text-2xl font-bold tracking-tight">{dish.name}</h3>
-                    <span className="text-primary font-semibold whitespace-nowrap">{dish.price}</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">{dish.description}</p>
-                  <div className="grid sm:grid-cols-2 gap-5 mb-5">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">Where to try</p>
-                      <ul className="space-y-1">
-                        {dish.where.map((place) => (
-                          <li key={place} className="text-sm text-muted-foreground">{place}</li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.15em] text-primary font-semibold mb-2">Best time</p>
-                      <p className="text-sm text-muted-foreground">{dish.bestTime}</p>
-                    </div>
-                  </div>
-                  <div className="mt-auto pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      <span className="font-semibold text-foreground">Insider tip: </span>{dish.tips}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={signatureDishes.map((dish) => ({
+              title: dish.name,
+              value: dish.price,
+              meta: `Where: ${dish.where.join(", ")} · ${dish.bestTime}`,
+              description: dish.description,
+              note: dish.tips,
+            }))}
+          />
         </div>
       </section>
 
       {/* Restaurants */}
       <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
-        <div className="container mx-auto max-w-7xl">
+        <div className="container mx-auto max-w-4xl">
           <Reveal className="max-w-2xl mb-12">
             <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
               <span className="text-muted-foreground/60 mr-3">02</span>The Institutions
@@ -271,36 +247,16 @@ export default function Cuisine() {
             </h2>
           </Reveal>
 
-          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {restaurants.map((r, i) => (
-              <Reveal key={r.name} delay={(i % 3) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
-                  <div className="flex items-start justify-between gap-3 mb-1.5">
-                    <h3 className="text-xl font-bold tracking-tight">{r.name}</h3>
-                    <span className="text-sm text-muted-foreground">{r.price}</span>
-                  </div>
-                  <p className="text-sm text-primary font-medium mb-4">{r.specialty}</p>
-                  <div className="space-y-2 text-sm text-muted-foreground mb-4">
-                    <div className="flex items-start gap-2">
-                      <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-muted-foreground/60" />
-                      <span>{r.location}</span>
-                    </div>
-                    <div className="flex items-start gap-2">
-                      <Clock className="w-4 h-4 mt-0.5 flex-shrink-0 text-muted-foreground/60" />
-                      <span>{r.hours}</span>
-                    </div>
-                    <p><span className="font-medium text-foreground">Atmosphere:</span> {r.atmosphere}</p>
-                    <p><span className="font-medium text-foreground">Must try:</span> {r.mustTry}</p>
-                  </div>
-                  <div className="mt-auto pt-4 border-t border-border">
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      <span className="font-semibold text-foreground">Tip: </span>{r.tip}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <EditorialList
+            items={restaurants.map((r) => ({
+              lead: r.specialty,
+              title: r.name,
+              value: r.price,
+              meta: `${r.location} · ${r.hours}`,
+              description: `${r.atmosphere} Must try: ${r.mustTry}`,
+              note: r.tip,
+            }))}
+          />
         </div>
       </section>
 
@@ -316,31 +272,14 @@ export default function Cuisine() {
             </h2>
           </Reveal>
 
-          <div className="grid md:grid-cols-3 gap-0 border-t border-border">
-            {foodTrails.map((trail, i) => (
-              <Reveal key={trail.title} delay={i * 110}>
-                <div className="pt-8 pb-6 md:pr-10 md:border-r border-border last:border-r-0 h-full">
-                  <Footprints className="w-6 h-6 text-primary/40 mb-5" />
-                  <h3 className="font-bold text-lg tracking-tight mb-2">{trail.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-4">{trail.route}</p>
-                  <div className="space-y-1 text-sm text-muted-foreground mb-4">
-                    <p><span className="font-medium text-foreground">Duration:</span> {trail.duration}</p>
-                    <p><span className="font-medium text-foreground">Best time:</span> {trail.bestTime}</p>
-                  </div>
-                  <ul className="space-y-1 mb-4">
-                    {trail.highlights.map((h) => (
-                      <li key={h} className="text-sm text-muted-foreground flex gap-2">
-                        <span className="text-primary">·</span>{h}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    <span className="font-semibold text-foreground">Tip: </span>{trail.tip}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+          <FeatureRows
+            items={foodTrails.map((trail) => ({
+              title: trail.title,
+              description: `${trail.duration} · ${trail.route}`,
+              chips: trail.highlights,
+              tip: trail.tip,
+            }))}
+          />
         </div>
       </section>
 
@@ -356,18 +295,16 @@ export default function Cuisine() {
             </h2>
           </Reveal>
 
-          <SwipeRow outerClassName="mb-14" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-            {streetFood.map((food, i) => (
-              <Reveal key={food.item} delay={(i % 4) * 90} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-6 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
-                  <h3 className="font-bold tracking-tight mb-2">{food.item}</h3>
-                  <p className="text-sm text-muted-foreground mb-1">{food.where}</p>
-                  <p className="text-sm font-semibold text-primary mb-3">{food.price}</p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{food.tip}</p>
-                </div>
-              </Reveal>
-            ))}
-          </SwipeRow>
+          <div className="mb-14 max-w-4xl">
+            <EditorialList
+              items={streetFood.map((food) => ({
+                title: food.item,
+                value: food.price,
+                meta: food.where,
+                note: food.tip,
+              }))}
+            />
+          </div>
 
           <div className="grid md:grid-cols-2 gap-4 sm:gap-5 max-w-4xl">
             {cookingClasses.map((c, i) => (
