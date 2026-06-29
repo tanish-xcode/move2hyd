@@ -181,13 +181,13 @@ export default function LivingHere() {
       </PageHero>
 
       {/* Key Stats */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">01</span>The Snapshot
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">01</span>The Snapshot
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               A city built for living.
             </h2>
           </Reveal>
@@ -210,14 +210,14 @@ export default function LivingHere() {
       </section>
 
       {/* Neighborhoods */}
-      <section id="neighborhoods" className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section id="neighborhoods" className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-7 sm:mb-8">
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-                <span className="text-muted-foreground/60 mr-3">02</span>The Neighborhoods
+              <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+                <span className="text-muted-foreground/50 mr-2">02</span>The Neighborhoods
               </p>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
                 Find your corner of the city.
               </h2>
             </div>
@@ -240,13 +240,13 @@ export default function LivingHere() {
       </section>
 
       {/* Transportation */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">03</span>Getting Around
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">03</span>Getting Around
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Every way to move.
             </h2>
           </Reveal>
@@ -262,13 +262,13 @@ export default function LivingHere() {
       </section>
 
       {/* Cost of Living */}
-      <section id="cost-of-living" className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section id="cost-of-living" className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">04</span>The Budget
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">04</span>The Budget
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               What life really costs.
             </h2>
           </Reveal>
@@ -329,13 +329,13 @@ export default function LivingHere() {
       </section>
 
       {/* Healthcare */}
-      <section id="healthcare" className="py-14 sm:py-28 px-6 sm:px-10">
+      <section id="healthcare" className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">05</span>Healthcare
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">05</span>Healthcare
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               World-class care, nearby.
             </h2>
           </Reveal>
@@ -354,13 +354,13 @@ export default function LivingHere() {
       </section>
 
       {/* Education */}
-      <section id="education" className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section id="education" className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">06</span>Education
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">06</span>Education
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Schools for every path.
             </h2>
           </Reveal>
@@ -377,13 +377,13 @@ export default function LivingHere() {
       </section>
 
       {/* Utilities */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">07</span>Setting Up
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">07</span>Setting Up
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Get connected, fast.
             </h2>
           </Reveal>

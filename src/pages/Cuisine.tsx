@@ -207,14 +207,14 @@ export default function Cuisine() {
       ]} />
 
       {/* Signature Dishes */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-7 sm:mb-8">
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-                <span className="text-muted-foreground/60 mr-3">01</span>The Classics
+              <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+                <span className="text-muted-foreground/50 mr-2">01</span>The Classics
               </p>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
                 Dishes you must try.
               </h2>
             </div>
@@ -236,13 +236,13 @@ export default function Cuisine() {
       </section>
 
       {/* Restaurants */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">02</span>The Institutions
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">02</span>The Institutions
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Where locals eat.
             </h2>
           </Reveal>
@@ -261,13 +261,13 @@ export default function Cuisine() {
       </section>
 
       {/* Food Trails */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">03</span>The Adventures
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">03</span>The Adventures
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Curated food trails.
             </h2>
           </Reveal>
@@ -284,13 +284,13 @@ export default function Cuisine() {
       </section>
 
       {/* Street Food & Cooking Classes */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">04</span>Go Deeper
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">04</span>Go Deeper
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Street eats & cooking classes.
             </h2>
           </Reveal>

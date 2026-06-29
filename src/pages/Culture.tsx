@@ -113,18 +113,18 @@ export default function Culture() {
       </PageHero>
 
       {/* Cultural Highlights — feature rows */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-7 sm:mb-8">
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-                <span className="text-muted-foreground/60 mr-3">01</span>The Treasures
+              <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+                <span className="text-muted-foreground/50 mr-2">01</span>The Treasures
               </p>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
                 What makes Hyderabad unique.
               </h2>
             </div>
-            <p className="text-muted-foreground text-base max-w-xs sm:text-right leading-relaxed">
+            <p className="text-muted-foreground text-sm max-w-xs sm:text-right leading-relaxed">
               Four pillars of a culture 400 years in the making.
             </p>
           </Reveal>
@@ -134,13 +134,13 @@ export default function Culture() {
       </section>
 
       {/* Signature Dishes — editorial list */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">02</span>The Cuisine
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">02</span>The Cuisine
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Signature dishes.
             </h2>
           </Reveal>
@@ -158,13 +158,13 @@ export default function Culture() {
       </section>
 
       {/* Cultural Venues — editorial list */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">03</span>The Stages
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">03</span>The Stages
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Cultural venues.
             </h2>
           </Reveal>
@@ -183,13 +183,13 @@ export default function Culture() {
       </section>
 
       {/* Festivals — editorial list */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">04</span>The Celebrations
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">04</span>The Celebrations
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Festivals year-round.
             </h2>
           </Reveal>
@@ -208,13 +208,13 @@ export default function Culture() {
       </section>
 
       {/* Local Experiences — editorial list */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">05</span>The Experiences
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">05</span>The Experiences
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Live it like a local.
             </h2>
           </Reveal>
@@ -232,13 +232,13 @@ export default function Culture() {
       </section>
 
       {/* Language Guide — split info (kept) */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">06</span>The Languages
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">06</span>The Languages
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               You'll be understood.
             </h2>
           </Reveal>

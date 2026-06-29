@@ -89,14 +89,14 @@ export default function TechHub() {
       ]} />
 
       {/* Tech Giants */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-7 sm:mb-8">
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-                <span className="text-muted-foreground/60 mr-3">01</span>The Giants
+              <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+                <span className="text-muted-foreground/50 mr-2">01</span>The Giants
               </p>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
                 Global tech at home.
               </h2>
             </div>
@@ -116,13 +116,13 @@ export default function TechHub() {
       </section>
 
       {/* Startups */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">02</span>The Builders
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">02</span>The Builders
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Startup ecosystem.
             </h2>
           </Reveal>
@@ -138,13 +138,13 @@ export default function TechHub() {
       </section>
 
       {/* Tech Parks */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">03</span>The Map
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">03</span>The Map
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Where it all happens.
             </h2>
           </Reveal>
@@ -159,13 +159,13 @@ export default function TechHub() {
       </section>
 
       {/* Ecosystem */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">04</span>The Advantage
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">04</span>The Advantage
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Why Hyderabad for tech?
             </h2>
           </Reveal>
@@ -181,13 +181,13 @@ export default function TechHub() {
       </section>
 
       {/* Job Market */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">05</span>The Market
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">05</span>The Market
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Roles in demand.
             </h2>
           </Reveal>
@@ -204,13 +204,13 @@ export default function TechHub() {
       </section>
 
       {/* Events */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">06</span>The Community
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">06</span>The Community
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Events & meetups.
             </h2>
           </Reveal>

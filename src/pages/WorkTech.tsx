@@ -209,13 +209,13 @@ export default function WorkTech() {
       </PageHero>
 
       {/* Key Stats */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">01</span>The Snapshot
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">01</span>The Snapshot
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               India's fastest-growing tech city.
             </h2>
           </Reveal>
@@ -238,14 +238,14 @@ export default function WorkTech() {
       </section>
 
       {/* Top Companies */}
-      <section id="employers" className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section id="employers" className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-4xl">
-          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
+          <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-7 sm:mb-8">
             <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-                <span className="text-muted-foreground/60 mr-3">02</span>The Employers
+              <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+                <span className="text-muted-foreground/50 mr-2">02</span>The Employers
               </p>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
                 Top companies hiring.
               </h2>
             </div>
@@ -267,13 +267,13 @@ export default function WorkTech() {
       </section>
 
       {/* Salaries */}
-      <section id="salary" className="py-14 sm:py-28 px-6 sm:px-10">
+      <section id="salary" className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">03</span>The Money
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">03</span>The Money
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               What you can earn.
             </h2>
           </Reveal>
@@ -330,13 +330,13 @@ export default function WorkTech() {
       </section>
 
       {/* Industry Growth */}
-      <section className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">04</span>The Momentum
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">04</span>The Momentum
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Every sector is growing.
             </h2>
           </Reveal>
@@ -353,13 +353,13 @@ export default function WorkTech() {
       </section>
 
       {/* Startups & Events */}
-      <section id="ecosystem" className="py-14 sm:py-28 px-6 sm:px-10">
+      <section id="ecosystem" className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">05</span>The Ecosystem
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">05</span>The Ecosystem
             </p>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               Startups & community.
             </h2>
           </Reveal>
@@ -396,13 +396,13 @@ export default function WorkTech() {
       </section>
 
       {/* Work Culture */}
-      <section id="culture" className="py-14 sm:py-28 px-6 sm:px-10 bg-muted/30">
+      <section id="culture" className="py-12 sm:py-16 px-6 sm:px-10 border-t border-border">
         <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">06</span>The Culture
+          <Reveal className="max-w-2xl mb-7 sm:mb-8">
+            <p className="text-[0.7rem] uppercase tracking-[0.2em] text-primary font-semibold mb-2">
+              <span className="text-muted-foreground/50 mr-2">06</span>The Culture
             </p>
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight">
               What working here feels like.
             </h2>
           </Reveal>
