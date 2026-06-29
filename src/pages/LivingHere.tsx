@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
+import { SwipeRow } from "@/components/SwipeRow";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
 import { Button } from "@/components/ui/button";
@@ -225,7 +226,7 @@ export default function LivingHere() {
             </p>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {neighborhoods.map((hood, i) => (
               <Reveal key={hood.name} delay={(i % 2) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-7 sm:p-8 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -261,7 +262,7 @@ export default function LivingHere() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -277,7 +278,7 @@ export default function LivingHere() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {transportation.map((t, i) => (
               <Reveal key={t.mode} delay={(i % 4) * 90} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
@@ -290,7 +291,7 @@ export default function LivingHere() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -306,7 +307,7 @@ export default function LivingHere() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid md:grid-cols-2 gap-5 sm:gap-6 mb-10">
+          <SwipeRow outerClassName="mb-10" className="grid md:grid-cols-2 gap-5 sm:gap-6">
             <Reveal className="h-full">
               <div className="h-full rounded-2xl bg-card border border-border p-7 sm:p-8">
                 <div className="flex items-center gap-3 mb-6">
@@ -344,9 +345,9 @@ export default function LivingHere() {
                 </div>
               </div>
             </Reveal>
-          </div>
+          </SwipeRow>
 
-          <div className="snap-row grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5">
             {costOfLiving.budgets.map((b, i) => (
               <Reveal key={b.label} delay={i * 90}>
                 <div className="relative h-full rounded-2xl bg-card border border-border p-6 sm:p-7 overflow-hidden">
@@ -357,7 +358,7 @@ export default function LivingHere() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -373,7 +374,7 @@ export default function LivingHere() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {healthcare.map((h, i) => (
               <Reveal key={h.name} delay={(i % 2) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -399,7 +400,7 @@ export default function LivingHere() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -415,7 +416,7 @@ export default function LivingHere() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {education.map((e, i) => (
               <Reveal key={e.type} delay={(i % 2) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
@@ -429,7 +430,7 @@ export default function LivingHere() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -445,7 +446,7 @@ export default function LivingHere() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {utilities.map((u, i) => (
               <Reveal key={u.service} delay={(i % 3) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -464,7 +465,7 @@ export default function LivingHere() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 

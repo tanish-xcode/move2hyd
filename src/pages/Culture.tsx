@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { SwipeRow } from "@/components/SwipeRow";
 import { Button } from "@/components/ui/button";
 import { Utensils, Theater, Camera, MapPin, Sparkles, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-culture-golconda.jpg";
@@ -128,7 +129,7 @@ export default function Culture() {
             </p>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {culturalHighlights.map((item, i) => (
               <Reveal key={item.title} delay={(i % 2) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-7 sm:p-8 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -150,7 +151,7 @@ export default function Culture() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -166,7 +167,7 @@ export default function Culture() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {signatureDishes.map((dish, i) => (
               <Reveal key={dish.name} delay={(i % 3) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -184,7 +185,7 @@ export default function Culture() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -200,7 +201,7 @@ export default function Culture() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {culturalVenues.map((venue, i) => (
               <Reveal key={venue.name} delay={(i % 3) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -222,7 +223,7 @@ export default function Culture() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -238,7 +239,7 @@ export default function Culture() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {festivals.map((festival, i) => (
               <Reveal key={festival.name} delay={(i % 3) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -254,7 +255,7 @@ export default function Culture() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -270,7 +271,7 @@ export default function Culture() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {localExperiences.map((exp, i) => (
               <Reveal key={exp.title} delay={(i % 3) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -288,7 +289,7 @@ export default function Culture() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -304,7 +305,7 @@ export default function Culture() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid lg:grid-cols-2 gap-5 sm:gap-6">
+          <SwipeRow className="grid lg:grid-cols-2 gap-5 sm:gap-6">
             <div className="space-y-5">
               <Reveal>
                 <div className="rounded-2xl bg-card border border-border p-7">
@@ -331,7 +332,7 @@ export default function Culture() {
                 </div>
               </div>
             </Reveal>
-          </div>
+          </SwipeRow>
         </div>
       </section>
 

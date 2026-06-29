@@ -3,6 +3,7 @@ import { SectionNav } from "@/components/SectionNav";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { SwipeRow } from "@/components/SwipeRow";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, ArrowRight, Footprints } from "lucide-react";
 import heroImage from "@/assets/cuisine-biryani.jpg";
@@ -223,7 +224,7 @@ export default function Cuisine() {
             </p>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {signatureDishes.map((dish, i) => (
               <Reveal key={dish.name} delay={(i % 2) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-7 sm:p-8 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -254,7 +255,7 @@ export default function Cuisine() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -270,7 +271,7 @@ export default function Cuisine() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {restaurants.map((r, i) => (
               <Reveal key={r.name} delay={(i % 3) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -299,7 +300,7 @@ export default function Cuisine() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -355,7 +356,7 @@ export default function Cuisine() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-14">
+          <SwipeRow outerClassName="mb-14" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {streetFood.map((food, i) => (
               <Reveal key={food.item} delay={(i % 4) * 90} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
@@ -366,7 +367,7 @@ export default function Cuisine() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
 
           <div className="grid md:grid-cols-2 gap-4 sm:gap-5 max-w-4xl">
             {cookingClasses.map((c, i) => (

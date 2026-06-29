@@ -3,6 +3,7 @@ import { SectionNav } from "@/components/SectionNav";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { SwipeRow } from "@/components/SwipeRow";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Shield, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/explore-nightlife.jpg";
@@ -102,7 +103,7 @@ export default function Nightlife() {
             </p>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {venues.map((v, i) => (
               <Reveal key={v.name} delay={(i % 2) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -127,7 +128,7 @@ export default function Nightlife() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -173,7 +174,7 @@ export default function Nightlife() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-14">
+          <SwipeRow outerClassName="mb-14" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {lateNight.map((f, i) => (
               <Reveal key={f.name} delay={(i % 4) * 90} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
@@ -183,9 +184,9 @@ export default function Nightlife() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
 
-          <div className="snap-row grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {entertainment.map((e, i) => (
               <Reveal key={e.name} delay={(i % 4) * 90} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
@@ -195,7 +196,7 @@ export default function Nightlife() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -211,7 +212,7 @@ export default function Nightlife() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-14">
+          <SwipeRow outerClassName="mb-14" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {weeklyGuide.map((w, i) => (
               <Reveal key={w.day} delay={(i % 4) * 90} className="h-full">
                 <div className="relative h-full rounded-2xl bg-card border border-border p-6 sm:p-7 overflow-hidden">
@@ -221,7 +222,7 @@ export default function Nightlife() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
 
           <Reveal>
             <div className="rounded-2xl bg-card border border-border p-7 sm:p-8">

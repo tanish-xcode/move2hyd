@@ -3,6 +3,7 @@ import { SectionNav } from "@/components/SectionNav";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
+import { SwipeRow } from "@/components/SwipeRow";
 import { Button } from "@/components/ui/button";
 import { Camera, MapPin, Clock, IndianRupee, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/explore-heritage.jpg";
@@ -172,7 +173,7 @@ export default function Heritage() {
             </p>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
             {monuments.map((m, i) => (
               <Reveal key={m.name} delay={(i % 2) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-7 sm:p-8 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -200,7 +201,7 @@ export default function Heritage() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -249,7 +250,7 @@ export default function Heritage() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {experiences.map((exp, i) => (
               <Reveal key={exp.title} delay={(i % 2) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -277,7 +278,7 @@ export default function Heritage() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -293,7 +294,7 @@ export default function Heritage() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {practicalInfo.map((info, i) => (
               <Reveal key={info.title} delay={(i % 3) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
@@ -302,7 +303,7 @@ export default function Heritage() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 

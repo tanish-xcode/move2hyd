@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { CountUp } from "@/components/CountUp";
+import { SwipeRow } from "@/components/SwipeRow";
 import { Button } from "@/components/ui/button";
 import { Rocket, ExternalLink, ArrowRight } from "lucide-react";
 import heroImage from "@/assets/hero-work-tech-new.jpg";
@@ -251,7 +252,7 @@ export default function WorkTech() {
             </p>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {topCompanies.map((company, i) => (
               <Reveal key={company.name} delay={(i % 3) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -274,7 +275,7 @@ export default function WorkTech() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -290,7 +291,7 @@ export default function WorkTech() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 mb-12">
+          <SwipeRow outerClassName="mb-12" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             {salaryGuide.map((level, i) => (
               <Reveal key={level.level} delay={(i % 4) * 90}>
                 <div className="relative h-full rounded-2xl bg-card border border-border p-6 sm:p-7 overflow-hidden">
@@ -302,7 +303,7 @@ export default function WorkTech() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
 
           <Reveal className="mb-10">
             <div className="overflow-x-auto rounded-2xl border border-border bg-card">
@@ -356,7 +357,7 @@ export default function WorkTech() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {industryGrowth.map((industry, i) => (
               <Reveal key={industry.sector} delay={(i % 3) * 100}>
                 <div className="relative h-full rounded-2xl bg-card border border-border p-6 sm:p-7 overflow-hidden">
@@ -371,7 +372,7 @@ export default function WorkTech() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
@@ -387,7 +388,7 @@ export default function WorkTech() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-14">
+          <SwipeRow outerClassName="mb-14" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {startupEcosystem.map((item, i) => (
               <Reveal key={item.name} delay={(i % 3) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1 flex flex-col">
@@ -402,7 +403,7 @@ export default function WorkTech() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-border">
             {techEvents.map((event, i) => (
@@ -430,7 +431,7 @@ export default function WorkTech() {
             </h2>
           </Reveal>
 
-          <div className="snap-row grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+          <SwipeRow className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {workCulture.map((item, i) => (
               <Reveal key={item.aspect} delay={(i % 2) * 100} className="h-full">
                 <div className="h-full rounded-2xl bg-card border border-border p-6 sm:p-7 transition-all duration-300 hover:shadow-[var(--shadow-lift)] hover:-translate-y-1">
@@ -440,7 +441,7 @@ export default function WorkTech() {
                 </div>
               </Reveal>
             ))}
-          </div>
+          </SwipeRow>
         </div>
       </section>
 
