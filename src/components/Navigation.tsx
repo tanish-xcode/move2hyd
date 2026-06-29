@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, Search, Heart, X } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
@@ -152,8 +151,6 @@ export const Navigation = () => {
                   </div>
                 </PopoverContent>
               </Popover>
-
-              <ThemeToggle />
 
               {/* Plan Your Move Button */}
               <Button variant="hero" size="sm" className="hidden md:flex" onClick={scrollToMoveGuide}>

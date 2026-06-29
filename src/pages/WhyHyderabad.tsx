@@ -48,12 +48,6 @@ const WhyHyderabad = () => {
     { icon: GraduationCap, title: "Education", status: "Excellent", details: "IIT-H, ISB, BITS Pilani, IIIT-H, International schools." }
   ];
 
-  const realStories = [
-    { name: "Priya Sharma", from: "Delhi", role: "Senior Software Engineer at Microsoft", story: "Moving from Delhi was the best decision. My rent dropped by 50%, air quality improved dramatically.", highlight: "Now owns a 2BHK in Gachibowli" },
-    { name: "Rahul Menon", from: "Bangalore", role: "Product Manager at Amazon", story: "Bangalore's traffic was killing me - 2 hours daily commute. Here, I live 4 km from office.", highlight: "Started cycling to work" },
-    { name: "Ananya Reddy", from: "Mumbai", role: "Investment Analyst at Goldman Sachs", story: "Mumbai local train trauma is behind me. Live in a spacious 3BHK with a view.", highlight: "Quality of life upgrade is unreal" }
-  ];
-
   const quickFacts = [
     { label: "Population", value: "10+ Million" },
     { label: "Languages", value: "Telugu, Hindi, English, Urdu" },
@@ -246,44 +240,6 @@ const WhyHyderabad = () => {
                   </div>
                   <h3 className="font-bold text-lg tracking-tight mb-2">{item.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.details}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Real Stories */}
-      <section className="py-20 sm:py-28 px-6 sm:px-10 bg-muted/30">
-        <div className="container mx-auto max-w-7xl">
-          <Reveal className="max-w-2xl mb-12">
-            <p className="text-xs uppercase tracking-[0.25em] text-primary font-semibold mb-3">
-              <span className="text-muted-foreground/60 mr-3">06</span>Real Stories
-            </p>
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.05]">
-              People who made the move.
-            </h2>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-            {realStories.map((story, i) => (
-              <Reveal key={story.name} delay={(i % 3) * 100} className="h-full">
-                <div className="h-full rounded-2xl bg-card border border-border p-7 flex flex-col">
-                  <p className="text-sm leading-relaxed mb-6">"{story.story}"</p>
-                  <div className="mt-auto">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                        <span className="text-sm font-semibold text-primary">
-                          {story.name.split(" ").map((n) => n[0]).join("")}
-                        </span>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-sm">{story.name}</p>
-                        <p className="text-xs text-muted-foreground">{story.role} · From {story.from}</p>
-                      </div>
-                    </div>
-                    <p className="text-xs text-primary font-medium border-t border-border pt-4">{story.highlight}</p>
-                  </div>
                 </div>
               </Reveal>
             ))}

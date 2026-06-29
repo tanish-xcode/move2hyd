@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 export interface EditorialListItem {
@@ -16,19 +18,26 @@ export interface EditorialListItem {
 
 /**
  * Magazine-style numbered list. Replaces uniform card grids for list-like
- * content (dishes, venues, experiences, jobs…). Naturally vertical, so it needs
- * no carousel / swipe affordance on mobile. The section header stays in the page.
+ * content (dishes, venues, jobs…). Naturally vertical, so it needs no carousel
+ * on mobile. Long lists collapse to `initialCount` rows behind a "Show all"
+ * button so pages stay short. The section header stays in the page.
  */
 export function EditorialList({
   items,
   startIndex = 1,
+  initialCount = 4,
 }: {
   items: EditorialListItem[];
   startIndex?: number;
+  initialCount?: number;
 }) {
+  const [expanded, setExpanded] = useState(false);
+  const collapsible = items.length > initialCount + 1;
+  const shown = collapsible && !expanded ? items.slice(0, initialCount) : items;
+
   return (
     <div className="border-t border-border">
-      {items.map((item, i) => (
+      {shown.map((item, i) => (
         <Reveal key={`${item.title}-${i}`} delay={(i % 4) * 60}>
           <div className="group flex items-start gap-4 sm:gap-6 border-b border-border py-5 sm:py-6 transition-colors hover:bg-muted/30">
             <span className="w-7 sm:w-10 shrink-0 pt-1 text-sm font-semibold tabular-nums text-primary/30 transition-colors group-hover:text-primary/60">
@@ -62,6 +71,17 @@ export function EditorialList({
           </div>
         </Reveal>
       ))}
+
+      {collapsible && !expanded && (
+        <button
+          type="button"
+          onClick={() => setExpanded(true)}
+          className="group flex w-full items-center justify-center gap-1.5 py-4 text-sm font-semibold text-primary transition-colors hover:text-primary/70"
+        >
+          Show all {items.length}
+          <ChevronDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
+        </button>
+      )}
     </div>
   );
 }
