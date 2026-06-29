@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import heroPoster from "@/assets/hero-hyderabad.jpg";
 
 /** Aerial drone clips that rotate with a crossfade as each one ends. */
 const heroClips = [
@@ -37,7 +36,6 @@ export const Hero = () => {
               i === active ? "opacity-100" : "opacity-0"
             }`}
             src={src}
-            poster={i === 0 ? heroPoster : undefined}
             muted
             playsInline
             autoPlay={i === 0}
